@@ -9,7 +9,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 //TODO:
-//Make Input/Output Location accessible outside of code
+//Make Input/Output Location accessible outside of code?
+//Make it scan a folder and change all files within a folder
 
 public class Main 
 {   
@@ -60,6 +61,8 @@ public class Main
 
             f1.read(data);
 
+            f1.close();
+
             return data;
         } 
         catch (FileNotFoundException e) 
@@ -103,13 +106,22 @@ public class Main
             String convertedHex = "";
             int tempConverter = 0;
             String[] splitConvertedHex = new String[3];
+            splitConvertedHex[1] = null;
+            String temp = "";
 
             String description = "";
 
             //Writing Information 
             for(int i = 0; i < animationCountFormatted; i++)
             {
-                String temp = ",";
+                if(i == 0)
+                {
+                    temp = "0,";
+                }
+                else
+                {
+                    temp = ",";
+                }
 
                 //Get Call Location
                 temp = temp + animationCallStart + ",";
@@ -119,7 +131,8 @@ public class Main
                 String animationDataOffset = formattedData[animationDataOffsetModifier] + formattedData[animationDataOffsetModifier + 1] + formattedData[animationDataOffsetModifier + 2] + formattedData[animationDataOffsetModifier + 3];
                 tempConverter = Integer.parseInt(animationDataOffset, 16);
                 animationDataOffset = Integer.toHexString(tempConverter);
-                temp = temp + animationDataOffset + ",";
+                //temp = temp + animationDataOffset + ",";
+                temp = temp + "=DEC2HEX(HEX2DEC(\"" + animationDataOffset + "\") + ($A$2 * 64)),";
 
                 //Get Call Name
                 for(int j = animationCallStartFormatted; j < animationNameBound && !formattedData[j].equals("0"); j++)
@@ -133,70 +146,77 @@ public class Main
 
                 splitConvertedHex = convertedHex.split("_");
 
-                switch(splitConvertedHex[1])
+                if(splitConvertedHex.length == 3)
                 {
-                    case "Z":
+                    switch(splitConvertedHex[1])
                     {
-                        description = "Static?";
-                        break;
-                    }
-                    case "S":
-                    {
-                        description = "Idle?";
-                        break;
-                    }
-                    case "R":
-                    {
-                        description = "Running?";
-                        break;
-                    }
-                    case "W":
-                    {
-                        description = "Walking?";
-                        break;
-                    }
-                    case "J":
-                    {
-                        description = "Jumping?";
-                        break;
-                    }
-                    case "D":
-                    {
-                        description = "Tired?";
-                        break;
-                    }
-                    case "N":
-                    {
-                        description = "Sleeping?";
-                        break;
-                    }
-                    case "X":
-                    {
-                        description = "Dizzy?";
-                        break;
-                    }
-                    case "T":
-                    {
-                        description = "Talking?";
-                        break;
-                    }
-                    case "C":
-                    {
-                        description = "Thinking?";
-                        break;
-                    }
-                    case "G":
-                    {
-                        description = "Ducking";
-                        break;
-                    }
-                    default:
-                    {
-                        description = "";
-                        break;
+                        case "Z":
+                        {
+                            description = "Static?";
+                            break;
+                        }
+                        case "S":
+                        {
+                            description = "Idle?";
+                            break;
+                        }
+                        case "R":
+                        {
+                            description = "Running?";
+                            break;
+                        }
+                        case "W":
+                        {
+                            description = "Walking?";
+                            break;
+                        }
+                        case "J":
+                        {
+                            description = "Jumping?";
+                            break;
+                        }
+                        case "D":
+                        {
+                            description = "Tired?";
+                            break;
+                        }
+                        case "N":
+                        {
+                            description = "Sleeping?";
+                            break;
+                        }
+                        case "X":
+                        {
+                            description = "Dizzy?";
+                            break;
+                        }
+                        case "T":
+                        {
+                            description = "Talking?";
+                            break;
+                        }
+                        case "C":
+                        {
+                            description = "Thinking?";
+                            break;
+                        }
+                        case "G":
+                        {
+                            description = "Ducking";
+                            break;
+                        }
+                        default:
+                        {
+                            description = "";
+                            break;
+                        }
                     }
                 }
+
                 temp = temp + description + "\n";
+
+                //Writing Data
+                Files.writeString(test, temp, StandardOpenOption.APPEND);
 
                 //Setting Next Variables
                 animationCallStartFormatted = animationCallStartFormatted + 64;
@@ -205,9 +225,7 @@ public class Main
                 animationDataOffsetModifier = 0;
                 convertedHex = "";
                 description = "";
-
-                //Writing Data
-                Files.writeString(test, temp, StandardOpenOption.APPEND);
+                temp = "";
             }
             
             
