@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 
 //TODO:
 //Make Input/Output Location accessible outside of code?
-//Make it scan a folder and change all files within a folder
+//Make it scan a folder and catalog all files within a folder
 
 public class Main 
 {   
