@@ -1,6 +1,8 @@
 # TTYDAnimationCataloger
 A tool to extract animation data from TTYD's and SPM's animation files
 
+UPDATED (8/23/22): Fixed a few bugs with recognizing names, added functions for the additional animation slots tool (can be toggled on and off by uncommenting a line)
+
 Huge thanks to PistonMiner for documentation and tools on TTYD's animation formats https://github.com/PistonMiner/ttyd-tools
 
 USE INSTRUCTIONS:
