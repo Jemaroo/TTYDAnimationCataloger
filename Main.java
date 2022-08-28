@@ -14,8 +14,8 @@ import java.nio.file.Paths;
 
 public class Main 
 {   
-    public static String inputFilePath = "PUT DIRECT PATH HERE"; // <------------------------------------------------------------
-    public static String outputFilePath = "PUT DIRECT PATH HERE"; // <------------------------------------------------------------
+    public static String inputFilePath = "C:\\Users\\james\\Desktop\\Modding\\TTYD\\Tools\\SPM Dump\\Dump\\a\\p_peach"; // <------------------------------------------------------------
+    public static String outputFilePath = "C:\\Users\\james\\Desktop\\Modding\\TTYD\\testing\\tempSwap"; // <------------------------------------------------------------
 
     /**
      * @Author Jemaroo
@@ -108,6 +108,7 @@ public class Main
             String[] splitConvertedHex = new String[3];
             splitConvertedHex[1] = null;
             String temp = "";
+            String animationDataOffset = "";
 
             String description = "";
 
@@ -128,7 +129,59 @@ public class Main
 
                 //Get Animation Data Offset
                 animationDataOffsetModifier = animationCallStartFormatted + 60;
-                String animationDataOffset = formattedData[animationDataOffsetModifier] + formattedData[animationDataOffsetModifier + 1] + formattedData[animationDataOffsetModifier + 2] + formattedData[animationDataOffsetModifier + 3];
+
+                if(formattedData[animationDataOffsetModifier].equals("0"))
+                {
+                    animationDataOffset = animationDataOffset + "00";
+                }
+                else if(Integer.parseInt(formattedData[animationDataOffsetModifier], 16) < 16)
+                {
+                    animationDataOffset = animationDataOffset + "0" + formattedData[animationDataOffsetModifier];
+                }
+                else
+                {
+                    animationDataOffset = animationDataOffset + formattedData[animationDataOffsetModifier];
+                }
+
+                if(formattedData[animationDataOffsetModifier + 1].equals("0"))
+                {
+                    animationDataOffset = animationDataOffset + "00";
+                }
+                else if(Integer.parseInt(formattedData[animationDataOffsetModifier + 1], 16) < 16)
+                {
+                    animationDataOffset = animationDataOffset + "0" + formattedData[animationDataOffsetModifier + 1];
+                }
+                else
+                {
+                    animationDataOffset = animationDataOffset + formattedData[animationDataOffsetModifier + 1];
+                }
+
+                if(formattedData[animationDataOffsetModifier + 2].equals("0"))
+                {
+                    animationDataOffset = animationDataOffset + "00";
+                }
+                else if(Integer.parseInt(formattedData[animationDataOffsetModifier + 2], 16) < 16)
+                {
+                    animationDataOffset = animationDataOffset + "0" + formattedData[animationDataOffsetModifier + 2];
+                }
+                else
+                {
+                    animationDataOffset = animationDataOffset + formattedData[animationDataOffsetModifier + 2];
+                }
+
+                if(formattedData[animationDataOffsetModifier + 3].equals("0"))
+                {
+                    animationDataOffset = animationDataOffset + "00";
+                }
+                else if(Integer.parseInt(formattedData[animationDataOffsetModifier + 3], 16) < 16)
+                {
+                    animationDataOffset = animationDataOffset + "0" + formattedData[animationDataOffsetModifier + 3];
+                }
+                else
+                {
+                    animationDataOffset = animationDataOffset + formattedData[animationDataOffsetModifier + 3];
+                }
+
                 tempConverter = Integer.parseInt(animationDataOffset, 16);
                 animationDataOffset = Integer.toHexString(tempConverter);
                 //temp = temp + animationDataOffset + ",";
@@ -226,6 +279,7 @@ public class Main
                 convertedHex = "";
                 description = "";
                 temp = "";
+                animationDataOffset = "";
             }
             
             
