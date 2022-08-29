@@ -12,8 +12,8 @@ import java.nio.file.Paths;
 
 public class Main 
 {   
-    public static String inputFilePath = ""; // <------------------------------------------------------------
-    public static String outputFilePath = ""; // <------------------------------------------------------------
+    public static String inputFilePath = "";
+    public static String outputFilePath = "";
 
     /**
      * @Author Jemaroo
