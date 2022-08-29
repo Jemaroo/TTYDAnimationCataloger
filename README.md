@@ -12,7 +12,7 @@ Huge thanks to PistonMiner for documentation and tools on TTYD's animation forma
 1: Download the Latest Release
 
 2: Should Contain: RunIndividual.bat, TTYDAnimationCataloger.jar, and the output folder
- 
+
  
  
 ===Individual Extraction===
