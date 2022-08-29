@@ -13,6 +13,8 @@ Huge thanks to PistonMiner for documentation and tools on TTYD's animation forma
 
 2: Should Contain: RunIndividual.bat, TTYDAnimationCataloger.jar, and the output folder
 
+
+
 ===Individual Extraction===
 
 1: Paste the animation file into the main folder
@@ -24,6 +26,8 @@ Huge thanks to PistonMiner for documentation and tools on TTYD's animation forma
 4: Save and close the text editor, then run RunIndividual.bat
 
 5: The csv with data should be in the output folder, inport the data into an excel spreadsheet to see it properly
+
+
 
 ===Extract All Animation Data=== *UNFINISHED*
 
