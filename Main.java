@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -12,8 +13,8 @@ import java.nio.file.Paths;
 
 public class Main 
 {   
-    public static String inputFilePath = ""; // <------------------------------------------------------------
-    public static String outputFilePath = ""; // <------------------------------------------------------------
+    public static String inputFilePath = "";
+    public static String outputFilePath = "";
 
     /**
      * @Author Jemaroo
@@ -23,21 +24,48 @@ public class Main
     {
         inputFilePath = args[0];
         outputFilePath = args[1];
+        File root = new File(inputFilePath);
 
-        //Inport File
-        File file = new File(inputFilePath);
-        byte[] data = readData(file);
-        String[] formattedData = new String[data.length];
-        
-        for(int i = 0; i < data.length; i++)
+        //Creating an ArrayList to store the files found
+        ArrayList<File> files = new ArrayList<File>();
+
+        //Creating an counter for how many files are in the directory
+        int readableFiles = root.listFiles().length;
+
+        //Creating a temporary array to store the files found to add to ArrayList
+        File[] tempFiles = new File[readableFiles];
+
+        //Setting the temporary array to store the files found
+        tempFiles = root.listFiles();
+
+        //Adding the files from the temporary array to the ArrayList
+        for(int i = 0; i < readableFiles; i++)
         {
-            formattedData[i] = String.format("%x", data[i]);
+            if(tempFiles[i].getName().charAt((int)(tempFiles[i].getName().length() - 1)) != '-')
+            {
+                files.add(tempFiles[i]);
+            }
         }
 
-        //Loop getting Call Location, Animation Data Offset, Call Name, and Index
-        //Place data into spreadsheet
-        setData(data, formattedData, file);
+        for(int i = 0; i < files.size(); i++)
+        {
+            //Inport File
+            //File file = new File(inputFilePath);
+            byte[] data = readData(files.get(i));
 
+            String[] formattedData = new String[data.length];
+
+            for(int j = 0; j < data.length; j++)
+            {
+                formattedData[j] = String.format("%x", data[j]);
+            }
+
+            //Loop getting Call Location, Animation Data Offset, Call Name, and Index
+            //Place data into spreadsheet
+            setData(data, formattedData, files.get(i));
+        }
+
+        //File file = new File(inputFilePath);
         System.out.println("Done!");
     }
 
