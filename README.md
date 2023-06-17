@@ -20,8 +20,10 @@ Huge thanks to PistonMiner for documentation and tools on TTYD's animation forma
 
 3: Paste the "a" folder from the root of your game's files into the same folder as the files listed above
 
-4: Change the name of the "a" folder to "input"
+4: Remove the 2 .bin files in the a folder
 
-5: Run Run.bat
+5: Change the name of the "a" folder to "input"
 
-6: The csv with data should be in the output folder, inport the data into an excel spreadsheet to see it properly
+6: Run Run.bat
+
+7: The csv with data should be in the output folder, inport the data into an excel spreadsheet to see it properly
