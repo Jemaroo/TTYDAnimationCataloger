@@ -1,5 +1,6 @@
 # TTYDAnimationCataloger
 A tool to extract animation data from TTYD's and SPM's animation files
+I also have been posting the extracted information with descriptions here: https://drive.google.com/drive/folders/1D-M9QLmiZRplz35xYeh3wlsSt9IPH8Jb?usp=drive_link 
 
 UPDATED (5/24/23): Finished adding compatibility for converting an entire folder at once, bug fixes.
 
