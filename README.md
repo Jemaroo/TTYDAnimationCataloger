@@ -3,6 +3,8 @@ A tool to extract animation data from TTYD's and SPM's animation files
 
 I also have been posting the extracted information with descriptions here: https://drive.google.com/drive/folders/1D-M9QLmiZRplz35xYeh3wlsSt9IPH8Jb?usp=drive_link 
 
+UPDATED (10/4/23): Moved the excel file into a new Combined folder, when run, will also combine all the csvs into a seperate file as well as individually. Fixed another issue where larger Call Names wouldn't display, it should now work for all lengths.
+
 UPDATED (9/27/23): Fixed an issue where smaller Call Names wouldn't display.
 
 UPDATED (5/24/23): Finished adding compatibility for converting an entire folder at once, bug fixes.
@@ -20,7 +22,7 @@ Huge thanks to PistonMiner for documentation and tools on TTYD's animation forma
 
 1: Download the Latest Release
 
-2: Should Contain: Run.bat, TTYDAnimationCataloger.jar, and the output folder
+2: Should Contain: Run.bat, TTYDAnimationCataloger.jar, and the output folder with the Combined folder and OPEN CSV's HERE sheet.
 
 3: Paste the "a" folder from the root of your game's files into the same folder as the files listed above
 
@@ -30,4 +32,4 @@ Huge thanks to PistonMiner for documentation and tools on TTYD's animation forma
 
 6: Run Run.bat
 
-7: The csv with data should be in the output folder, inport the data into an excel spreadsheet to see it properly
+7: The csvs with data should be in the output folder and the combined file should be in the Combined folder, import the data into an excel spreadsheet to see it properly
