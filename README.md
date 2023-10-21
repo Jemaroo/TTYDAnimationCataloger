@@ -20,6 +20,8 @@ Huge thanks to PistonMiner for documentation and tools on TTYD's animation forma
 
 ============USAGE============
 
+Requirements: An updated version of Java
+
 1: Download the Latest Release
 
 2: Should Contain: Run.bat, TTYDAnimationCataloger.jar, and the output folder with the Combined folder and OPEN CSV's HERE sheet.
