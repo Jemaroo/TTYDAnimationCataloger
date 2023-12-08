@@ -28,7 +28,7 @@ Requirements: An updated version of Java
 
 3: Paste the "a" folder from the root of your game's files into the same folder as the files listed above
 
-4: Remove the 2 .bin files in the a folder
+4: Remove the 2 .bin files in the a folder and menu_party
 
 5: Change the name of the "a" folder to "input"
 
