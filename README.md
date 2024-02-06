@@ -20,7 +20,8 @@ Huge thanks to PistonMiner for documentation and tools on TTYD's animation forma
 
 ============USAGE============
 
-Requirements: An updated version of Java
+Requirements: An updated version of Java with Developer Features
+https://www.oracle.com/database/sqldeveloper/technologies/download/ 
 
 1: Download the Latest Release
 
